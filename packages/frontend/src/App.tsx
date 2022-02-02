@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Sidebar } from "./sidebar/Sidebar";
+import { BlogPosts } from "./blog/BlogPosts";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Cv } from "./cv/Cv";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="landing-page">
+      <BrowserRouter>
+        <Sidebar />
+        <MeHeader />
+        <Switch>
+          <Route path="/blog" children={<BlogPosts />} />
+          <Route path="/cv" children={<Cv />} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
+};
+const MeHeader = () => {
+  return (
+    <div className="me-header">
+      <h1>Felix McCuaig - Full Stack Developer</h1>
+    </div>
+  );
+};
 
 export default App;
