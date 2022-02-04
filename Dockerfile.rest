@@ -1,0 +1,20 @@
+FROM node:16
+
+WORKDIR /usr/src
+
+## Copy both the source of the package
+## we want to build
+COPY ./packages/rest ./packages/rest
+
+## And the source of the common package
+## which is a dependency for many microservices
+COPY ./packages/common ./packages/common
+
+## Build common
+RUN cd ./packages/common && npm install && npm run build
+
+## Build the source of rest service
+RUN cd ./packages/rest && npm install && npm run build
+
+EXPOSE 8080
+CMD cd ./packages/rest && npm run start

@@ -15,7 +15,11 @@
   font-family: "Open Sans", sans-serif;
   background-color: #ffe45c;
   margin-bottom: 1em;
+}
+
+a {
   text-decoration: none;
+  color: black;
 }
 
 .blog-tile-header {
