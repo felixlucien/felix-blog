@@ -2,7 +2,6 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - build
-      - .
       - "--build-arg" FAV_COLOR=${_FAV_COLOR}
       - "--build-arg" FAV_SPORT=${_FAV_SPORT}
       - "--no-cache"
@@ -10,6 +9,7 @@ steps:
       - "$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA"
       - "-f"
       - Dockerfile.rest
+      - "."
     id: Build
   - name: gcr.io/cloud-builders/docker
     args:
