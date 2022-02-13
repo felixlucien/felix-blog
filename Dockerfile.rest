@@ -16,8 +16,8 @@ RUN cd ./packages/common && npm install && npm run build
 ## Build the source of rest service
 RUN cd ./packages/rest && npm install && npm run build
 
-ENV FAV_COLOR TEST1
-ENV FAV_SPORT TEST2
+ENV FAV_COLOR $FAV_COLOR
+ENV FAV_SPORT $FAV_SPORT
 
 EXPOSE 8080
 CMD cd ./packages/rest && npm run start
