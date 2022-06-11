@@ -1,0 +1,16 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    dir: "packages/frontend"
+    args: ["install"]
+  - name: "gcr.io/cloud-builders/npm"
+    dir: "packages/frontend"
+    args: ["run", "build"]
+  - name: "gcr.io/$PROJECT_ID/firebase"
+    dir: "packages/frontend"
+    args:
+      - --project=$PROJECT_ID
+      - deploy
+      - --only=hosting
+timeout: "600s"
+options:
+  logging: CLOUD_LOGGING_ONLY
