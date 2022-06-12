@@ -28,7 +28,7 @@ export const MePage = () => {
               </p>
               <p className="mt-2">
                 The development of software offers a unique oppurtunity to
-                automate such tasks and from a young age, I've been infactuated
+                automate such tasks and from a young age, I've been infatuated
                 with the creation of systems which do just that.
               </p>
               <p className="mt-2">
