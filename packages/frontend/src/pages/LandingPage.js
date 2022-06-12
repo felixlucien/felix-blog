@@ -36,7 +36,7 @@ export const LandingPage = () => {
             className="text-center rounded p-2 m-2 w-16 md:w-32 bg-slate-500 text-white"
             to="/cv"
           >
-            CV
+            Cv
           </Link>
         </div>
       </div>
