@@ -12,8 +12,8 @@ import { useEffect } from "react";
 
 export const Pages = () => {
   useEffect(() => {
-    ReactGA.pageview({
-      hitType: "pageView",
+    ReactGA.send({
+      hitType: "pageview",
       page: window.location.pathname + window.location.search,
     });
   }, []);

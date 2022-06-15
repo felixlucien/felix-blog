@@ -6,7 +6,7 @@ import { Pages } from "./Pages";
 import ReactGA from "react-ga4";
 
 ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-ReactGA.send({ hitType: "pageview", page: "/" });
+ReactGA.send({ hitType: "pageview", page: "landing" });
 
 function App() {
   return (
