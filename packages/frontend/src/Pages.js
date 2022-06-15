@@ -1,4 +1,4 @@
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import { Route, Routes } from "react-router";
 import { AnimatePresence } from "framer-motion";
