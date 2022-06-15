@@ -8,6 +8,8 @@ import { MePage } from "./pages/Me";
 import { ProjectsPage } from "./pages/Projects";
 import { Cv } from "./pages/Cv";
 
+import { useEffect } from "react";
+
 export const Pages = () => {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
