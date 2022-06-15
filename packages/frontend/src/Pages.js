@@ -1,3 +1,5 @@
+import ReactGA from "react-ga";
+
 import { Route, Routes } from "react-router";
 import { AnimatePresence } from "framer-motion";
 
@@ -7,6 +9,10 @@ import { ProjectsPage } from "./pages/Projects";
 import { Cv } from "./pages/Cv";
 
 export const Pages = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       <Routes>

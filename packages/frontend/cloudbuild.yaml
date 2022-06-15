@@ -5,6 +5,8 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     dir: "packages/frontend"
     args: ["run", "build"]
+    env:
+      - "REACT_APP_GA_TRACKING_ID=${_REACT_APP_GA_TRACKING_ID}"
   - name: "gcr.io/$PROJECT_ID/firebase"
     dir: "packages/frontend"
     args:
