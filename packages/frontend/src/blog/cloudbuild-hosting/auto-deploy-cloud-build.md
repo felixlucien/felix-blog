@@ -2,7 +2,7 @@
 
 Nowadays, setting up automated site deployment is a piece of cake with the simple and powerful tools developed by the likes of google, circleci, jenkins etc.
 
-For example, when I made this site, it took me a few hours to actually write the content, layout etc in React, but only a few minutes to setup automatic deployment using cloud build.
+For example, when I made this site, it took me a few hours to actually write the content, layout etc in React + Tailwind, but only a few minutes to setup automatic deployment using cloud build.
 
 Furthermore cloud build is monorepo friendly! This is very important as it means all your companies' software, microservices, etc can be deployed using a single tool.
 
@@ -21,7 +21,7 @@ For reference, the filesystem of my project looks like this:
 
 Everything inside our `frontend` folder was created using `create-react-app`, except for the `cloudbuild.yaml` file. Note, I've only included a few of the files there, theres heaps more, like a `.gitignore`, etc.
 
-The reason I've nested `frontend` inside another folder called `packages` is becuase of the M-word: Monorepo... I'll explain later.
+The reason I've nested `frontend` inside another folder called `packages` is to set the project up as a Monorepo. I'll explain later.
 
 Inside my `cloudbuild.yaml` I put:
 
@@ -131,3 +131,9 @@ In the included files, I only include the files in my `frontend` folder as this 
 I set the cloud build config location to `packages/frontend/cloudbuild.yaml` and set the service account below to the `appspot` one, (or you can create one with the right permissions).
 
 ## Last Step
+
+If you were to run the trigger, it would work until the `deploy` step. This is because the `firebase` cloud builder is not included in Google Cloud projects by default. It can be easily setup by running steps 1-6 [here]("https://cloud.google.com/build/docs/deploying-builds/deploy-firebase").
+
+## Monorepo
+
+In a codebase used for work, or a more substantial project, a good way to organise the project files is by using a monorepo. Such a design has many benefits as it easily facilitates code sharing in different parts of a project and code reuse for common components. The most notable example of this is Google, see a good article on the matter [here]("https://qeunit.com/blog/how-google-does-monorepo/"). Since we can specify a path for our `cloudbuild.yaml` files, we can extend our project with any number more packages and setup cloud build triggers too! This happens to be an extremely convenientway to manage our code.

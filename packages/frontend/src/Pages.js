@@ -7,6 +7,7 @@ import { LandingPage } from "./pages/LandingPage";
 import { MePage } from "./pages/Me";
 import { ProjectsPage } from "./pages/Projects";
 import { Cv } from "./pages/Cv";
+import { Blog } from "./pages/Blog";
 
 import { useEffect } from "react";
 
@@ -25,6 +26,7 @@ export const Pages = () => {
         <Route path="/me" element={<MePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/cv" element={<Cv />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </AnimatePresence>
   );
