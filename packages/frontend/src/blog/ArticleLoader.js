@@ -54,7 +54,7 @@ export const ArticleDetail = ({}) => {
           styles={styles}
           remarkPlugins={[remarkGfm]}
           transformImageUri={(uri) =>
-            `http://${window.location.host}/cloudbuild-hosting/${uri}`
+            `https://${window.location.host}/cloudbuild-hosting/${uri}`
           }
         >
           {content}
