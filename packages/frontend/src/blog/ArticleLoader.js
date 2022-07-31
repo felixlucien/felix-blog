@@ -44,6 +44,7 @@ export const ArticleDetail = ({}) => {
     }
 
     document.title = article.name;
+    document.description = article.description;
 
     fetch(article.link)
       .then((r) => r.text())
