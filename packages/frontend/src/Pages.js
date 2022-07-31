@@ -10,6 +10,7 @@ import { Cv } from "./pages/Cv";
 import { Blog } from "./pages/Blog";
 
 import { useEffect } from "react";
+import { ArticleDetail } from "./blog/ArticleLoader";
 
 export const Pages = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ export const Pages = () => {
         <Route path="/me" element={<MePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/cv" element={<Cv />} />
+        <Route path="/blog/:id" element={<ArticleDetail />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
     </AnimatePresence>

@@ -38,6 +38,12 @@ export const LandingPage = () => {
           >
             Cv
           </Link>
+          <Link
+            className="text-center rounded p-2 m-2 w-16 md:w-32 bg-slate-500 text-white"
+            to="/blog"
+          >
+            Blog
+          </Link>
         </div>
       </div>
     </motion.div>

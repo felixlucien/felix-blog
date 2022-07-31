@@ -18,7 +18,7 @@ export const ProjectsPage = () => {
       exit={{ scaleY: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="w-screen overflow-y-auto bg-slate-400 flex flex-col items-center justify-center">
+      <div className="w-screen overflow-y-auto h-screen bg-slate-400 flex flex-col items-center justify-center">
         <div className={CARD_STYLE}>
           <div className="mx-2">
             <h1 className="text-2xl">My projects.</h1>

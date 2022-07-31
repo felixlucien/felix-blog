@@ -1,25 +1,75 @@
-import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
+
+import { useParams } from "react-router-dom";
+
 import { ArticleMeta } from "./ArticleMeta";
 
-import AutoDeploy from "./cloudbuild-hosting/auto-deploy-cloud-build.md";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+import * as styles from "./articlestyles.css";
 
 export const articles = [
   {
+    id: "react-cloudbuild",
     name: "Deploy easy with cloud build + firebase hosting.",
-    date: new Date("26/06/2022"),
+    date: new Date("2022-06-26"),
     description:
       "Setup cloud build triggers to deploy your firebase hosting web apps automatically!",
-    content: AutoDeploy,
+    link: "/cloudbuild-hosting/auto-deploy-cloud-build.md",
   },
 ];
 
-export const ArticleDetail = () => {};
+const renderers = {
+  //This custom renderer changes how images are rendered
+  //we use it to constrain the max width of an image to its container
+  image: ({ alt, src, title }) => (
+    <img alt={alt} src={src} title={title} style={{ maxWidth: 475 }} />
+  ),
+};
+
+export const ArticleDetail = ({}) => {
+  const params = useParams();
+
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    const article = articles.find((x) => x.id === params.id);
+
+    if (!article) {
+      return;
+    }
+
+    fetch(article.link)
+      .then((r) => r.text())
+      .then((text) => setContent(text));
+  }, []);
+
+  return (
+    <div className="p-4 bg-gray-300 flex flex-col items-center">
+      <div className="w-4/5">
+        <ReactMarkdown
+          escapeHtml={false}
+          renderers={renderers}
+          styles={styles}
+          remarkPlugins={[remarkGfm]}
+          transformImageUri={(uri) =>
+            `http://${window.location.host}/cloudbuild-hosting/${uri}`
+          }
+        >
+          {content}
+        </ReactMarkdown>
+      </div>
+    </div>
+  );
+};
 
 export const ArticlesList = () => {
   return (
-    <div>
+    <div className="bg-slate-400 w-full h-screen p-3">
+      <h1 className="text-2xl text-white font-bold mb-2">Blog posts</h1>
       {articles.map((x, i) => (
-        <ArticleMeta article={x} />
+        <ArticleMeta key={i} article={x} />
       ))}
     </div>
   );

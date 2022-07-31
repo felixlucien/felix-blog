@@ -1,0 +1,35 @@
+h2 {
+  font-size: xx-large;
+  font-weight: 800;
+  font-family: "Assistant", Helvetica, Arial, sans-serif;
+}
+
+pre {
+  background-color: rgb(40, 44, 52);
+  padding: 0.8em;
+  border-radius: 0.5em;
+  font-weight: 500;
+}
+
+code {
+  color: white;
+  font-family: "JetBrains Mono", Menlo, Monaco, "Courier New", monospace;
+  word-wrap: break-word;
+  background-color: rgb(40, 44, 52);
+}
+
+a {
+  color: blue;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+li {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

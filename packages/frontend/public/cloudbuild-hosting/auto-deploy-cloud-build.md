@@ -73,7 +73,7 @@ I'll go thru them step by step:
       - --only=hosting
 ```
 
-3. Please go back to the `packages/frontend` folder and run the `firebase deploy` command with special arguments `--only=hosting` command, this ensures we just deploy firebase hosting, as firebase also allows you to deploy functions, security rules for storage etc. You may also ask, "what is the `--project` arg?" Well, Google is nice enough to create a bunch of standard variables for us, a list of which is [here]("https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values").
+3. Please go back to the `packages/frontend` folder and run the `firebase deploy` command with special arguments `--only=hosting` command, this ensures we just deploy firebase hosting, as firebase also allows you to deploy functions, security rules for storage etc. You may also ask, "what is the `--project` arg?" Well, Google is nice enough to create a bunch of standard variables for us, a list of which is [here](https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values).
 
 These can be used to deploy builds with certain tags, to certain regions etc. You can also define custom ones (which is really important for deploying commercial software infrastructure.)
 
@@ -85,7 +85,7 @@ options:
   logging: CLOUD_LOGGING_ONLY
 ```
 
-4. Lastly, other metadata can be specified about the deployment, in this case I've told the computer to timeout the build after 10 mins (the build usually only takes a few for something this small), and the `logging` option because I don't want to store the logs in cloud storage, see [here]("https://cloud.google.com/build/docs/build-config-file-schema") for more info.
+4. Lastly, other metadata can be specified about the deployment, in this case I've told the computer to timeout the build after 10 mins (the build usually only takes a few for something this small), and the `logging` option because I don't want to store the logs in cloud storage, see [here](https://cloud.google.com/build/docs/build-config-file-schema) for more info.
 
 ## Firebase Hosting Config
 
@@ -118,7 +118,7 @@ Here, we tell hosting to route everything to our main file `index.html`, and sin
 
 Right now, our config is ready to go, but the server doesn't actually know it exists, or when to run all this fancy build stuff. To fix this, we create a build trigger in our Google Cloud project.
 
-|       Description       |       + Parameters       |
+|       Description       |        Parameters        |
 | :---------------------: | :----------------------: |
 | ![](./first_config.png) | ![](./second_config.png) |
 
@@ -132,8 +132,8 @@ I set the cloud build config location to `packages/frontend/cloudbuild.yaml` and
 
 ## Last Step
 
-If you were to run the trigger, it would work until the `deploy` step. This is because the `firebase` cloud builder is not included in Google Cloud projects by default. It can be easily setup by running steps 1-6 [here]("https://cloud.google.com/build/docs/deploying-builds/deploy-firebase").
+If you were to run the trigger, it would work until the `deploy` step. This is because the `firebase` cloud builder is not included in Google Cloud projects by default. It can be easily setup by running steps 1-6 [here](https://cloud.google.com/build/docs/deploying-builds/deploy-firebase).
 
 ## Monorepo
 
-In a codebase used for work, or a more substantial project, a good way to organise the project files is by using a monorepo. Such a design has many benefits as it easily facilitates code sharing in different parts of a project and code reuse for common components. The most notable example of this is Google, see a good article on the matter [here]("https://qeunit.com/blog/how-google-does-monorepo/"). Since we can specify a path for our `cloudbuild.yaml` files, we can extend our project with any number more packages and setup cloud build triggers too! This happens to be an extremely convenientway to manage our code.
+In a codebase used for work, or a more substantial project, a good way to organise the project files is by using a monorepo. Such a design has many benefits as it easily facilitates code sharing in different parts of a project and code reuse for common components. The most notable example of this is Google, see a good article on the matter [here](https://qeunit.com/blog/how-google-does-monorepo/). Since we can specify a path for our `cloudbuild.yaml` files, we can extend our project with any number more packages and setup cloud build triggers too! This happens to be an extremely convenientway to manage our code.
