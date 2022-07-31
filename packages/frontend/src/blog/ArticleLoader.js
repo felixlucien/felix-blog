@@ -7,6 +7,8 @@ import { ArticleMeta } from "./ArticleMeta";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { Toolbar } from "../components/Toolbar";
+
 import * as styles from "./articlestyles.css";
 
 export const articles = [
@@ -47,8 +49,9 @@ export const ArticleDetail = ({}) => {
   }, []);
 
   return (
-    <div className="p-4 bg-gray-300 flex flex-col items-center">
-      <div className="w-4/5">
+    <div className="bg-gray-300 flex flex-col items-center">
+      <Toolbar />
+      <div className="w-4/5 p-4">
         <ReactMarkdown
           escapeHtml={false}
           renderers={renderers}
@@ -67,9 +70,10 @@ export const ArticleDetail = ({}) => {
 
 export const ArticlesList = () => {
   return (
-    <div className="bg-slate-400 w-full h-screen p-3 flex flex-col items-center">
+    <div className="bg-slate-400 w-full h-screen flex flex-col items-center">
+      <Toolbar />
       <div className="w-1/2 flex flex-col gap-4">
-        <h1 className="title-text text-4xl text-white font-bold mb-2">
+        <h1 className="title-text text-4xl text-white font-bold mt-2">
           Blog posts
         </h1>
         {articles.map((x, i) => (
