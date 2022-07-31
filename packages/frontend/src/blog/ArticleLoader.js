@@ -17,6 +17,7 @@ export const articles = [
     description:
       "Setup cloud build triggers to deploy your firebase hosting web apps automatically!",
     link: "/cloudbuild-hosting/auto-deploy-cloud-build.md",
+    read_time: "7 min",
   },
 ];
 
@@ -66,11 +67,15 @@ export const ArticleDetail = ({}) => {
 
 export const ArticlesList = () => {
   return (
-    <div className="bg-slate-400 w-full h-screen p-3">
-      <h1 className="text-2xl text-white font-bold mb-2">Blog posts</h1>
-      {articles.map((x, i) => (
-        <ArticleMeta key={i} article={x} />
-      ))}
+    <div className="bg-slate-400 w-full h-screen p-3 flex flex-col items-center">
+      <div className="w-1/2 flex flex-col gap-4">
+        <h1 className="title-text text-4xl text-white font-bold mb-2">
+          Blog posts
+        </h1>
+        {articles.map((x, i) => (
+          <ArticleMeta key={i} article={x} />
+        ))}
+      </div>
     </div>
   );
 };
