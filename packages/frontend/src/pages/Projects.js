@@ -14,7 +14,7 @@ const CARD_STYLE = "w-full md:w-4/5 p-2 bg-white mt-2";
 
 export const ProjectsPage = () => {
   return (
-    <div className="w-screen h-screen bg-slate-400 flex flex-col items-center">
+    <div className="w-screen bg-slate-400 flex flex-col items-center">
       <Toolbar />
       <div className={CARD_STYLE}>
         <div className="mx-2">
@@ -30,7 +30,7 @@ export const ProjectsPage = () => {
             <h1 className="ml-auto">2018 (early high school)</h1>
           </div>
           <div className="flex flex-col md:flex-row items-center">
-            <div className="w-80">
+            <div className="md:w-80">
               <h1 className="font-bold">The issue</h1>
               <h1>
                 Having to ask people to get things from the shops is a pain in
@@ -46,7 +46,7 @@ export const ProjectsPage = () => {
               </h1>
             </div>
             <div className="md:ml-auto mt-2 md:mt-0">
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="grid grid-cols-2 md:flex-row gap-4">
                 <img className="w-44" src={shareshopLogin} />
                 <img className="w-44" src={shareshopQuickstart} />
                 <img className="w-44" src={shareshopLists} />
@@ -77,14 +77,16 @@ export const ProjectsPage = () => {
                 sourced too... How good is that!
               </h1>
             </div>
-            <div className="md:ml-auto flex flex-col md:flex-row gap-4 mt-2 items-center">
-              <img className="w-44" src={autocompleteSimple} />
-              <img className="w-44" src={autocompleteComplex} />
+            <div className="md:ml-auto mt-2 md:mt-0">
+              <div className="grid grid-cols-2 md:flex-row gap-4">
+                <img className="w-44" src={autocompleteSimple} />
+                <img className="w-44" src={autocompleteComplex} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={`${CARD_STYLE} mb-2`}>
+      <div className={CARD_STYLE}>
         <div className="mx-2">
           <div className="flex flex-row">
             <h1 className="text-2xl">ESP 8266 Router</h1>
@@ -110,6 +112,28 @@ export const ProjectsPage = () => {
                 <code className="bg-black text-white">show ip route</code>
                 <code className="bg-black text-white">show interface en</code>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`${CARD_STYLE} mb-2`}>
+        <div className="mx-2">
+          <div className="flex flex-row">
+            <h1 className="text-2xl">OCPP 1.6J simulator</h1>
+            <h1 className="ml-auto">2022</h1>
+          </div>
+          <div className="flex flex-row">
+            <div>
+              <h1 className="font-bold">The issue</h1>
+              <h1>Developing software using real EV chargers is too slow!</h1>
+              <h1 className="font-bold">The solution</h1>
+              <h1>
+                At EVUp we created and open-sourced a OCPP 1.6J simulator, we
+                can now create end to end features for the EV chargers without
+                having to plug into an EV. Creating features is fat quicker as
+                we can now rapidly iterate, weird issues can also be debugged
+                easier as we can create artificial configurations.
+              </h1>
             </div>
           </div>
         </div>

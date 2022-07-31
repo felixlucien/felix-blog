@@ -8,7 +8,7 @@ export const MePage = () => {
   return (
     <div className="w-screen md:h-screen bg-slate-400 flex flex-col items-center">
       <Toolbar />
-      <div className="w-4/5 grid grid-cols-3 gap-4 mt-8">
+      <div className="w-4/5 flex flex-col md:grid md:grid-cols-3 gap-4 mt-8">
         <MeCard />
         <ShpeilCard />
         <InterestsCard />
@@ -74,11 +74,11 @@ const InterestsCard = () => {
     <div className="flex flex-col items-center bg-slate-500 p-2 shadow-lg text-white">
       <h1 className="text-2xl">Interests</h1>
       <hr className="border-2 my-2 w-full" />
-      <h1 className="mx-1">
+      <h1 className="mx-1 text-center">
         I like making stuff, sometimes useful, sometimes not, always
         interesting. See <a href="projects">projects</a>.
       </h1>
-      <h1 className="mx-1">
+      <h1 className="mx-1 text-center">
         I'm also interested in how the world works, how we live within it and
         how we can improve our quality of life through the development of
         technology.
