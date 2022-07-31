@@ -43,6 +43,8 @@ export const ArticleDetail = ({}) => {
       return;
     }
 
+    document.title = article.name;
+
     fetch(article.link)
       .then((r) => r.text())
       .then((text) => setContent(text));
