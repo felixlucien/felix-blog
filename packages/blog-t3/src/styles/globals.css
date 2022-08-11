@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: "Quicksand", "Open Sans", sans-serif;
+}
+
+.linkedin-blue {
+  background: #0a66c2;
+}
+
+a {
+  color: blue;
+}
