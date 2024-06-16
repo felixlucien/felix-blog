@@ -20,6 +20,16 @@ export const articles = [
       "Setup cloud build triggers to deploy your firebase hosting web apps automatically!",
     link: "/cloudbuild-hosting/auto-deploy-cloud-build.md",
     read_time: "7 min",
+    folder: "cloudbuild-hosting",
+  },
+  {
+    id: "typescript-logging",
+    name: "Easy typescript logging.",
+    date: new Date("2023-04-14"),
+    description: "Easy typescript class based logging!",
+    link: "/typescript-logger/typescript-logger.md",
+    read_time: "2 min",
+    folder: "typescript-logger",
   },
 ];
 
@@ -35,6 +45,7 @@ export const ArticleDetail = ({}) => {
   const params = useParams();
 
   const [content, setContent] = useState("");
+  const [article, setArticle] = useState(null);
 
   useEffect(() => {
     const article = articles.find((x) => x.id === params.id);
@@ -45,6 +56,8 @@ export const ArticleDetail = ({}) => {
 
     document.title = article.name;
     document.description = article.description;
+
+    setArticle(article);
 
     fetch(article.link)
       .then((r) => r.text())
@@ -61,7 +74,7 @@ export const ArticleDetail = ({}) => {
           styles={styles}
           remarkPlugins={[remarkGfm]}
           transformImageUri={(uri) =>
-            `https://${window.location.host}/cloudbuild-hosting/${uri}`
+            `https://${window.location.host}/${article.folder}/${uri}`
           }
         >
           {content}
